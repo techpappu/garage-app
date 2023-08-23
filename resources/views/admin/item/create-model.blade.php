@@ -29,7 +29,7 @@
                 <div class="p-6 space-y-6">
                     <div class="mb-4.5">
                         <label class="mb-2.5 block text-black dark:text-white">
-                            Description
+                            Description <span class="text-meta-1">*</span>
                         </label>
                         <input type="hidden" name="job_id" value="{{$data['job']->id}}">
                         <textarea rows="4" name="description" placeholder="Enter Item Description Here..." class="w-full rounded-lg border-[1.5px] border-primary bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input" spellcheck="false"></textarea>

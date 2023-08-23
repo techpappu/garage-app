@@ -4,9 +4,9 @@ class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hid
 @click.outside="sidebarToggle = false"
 >
 <!-- SIDEBAR HEADER -->
-<div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
+<div class="flex items-center justify-between bg-white dark:bg-gray-300">
   <a href="{{route('admin.dashboard')}}">
-    <img src="{{asset('images/logo/logo.svg')}}" alt="Logo" />
+    <img src="{{asset('images/logo/dashboard.png')}}" alt="Logo" width="80%" />
   </a>
 
   <button class="block lg:hidden" @click.stop="sidebarToggle = !sidebarToggle">
