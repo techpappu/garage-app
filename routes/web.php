@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    if(Auth::check()){
+        return redirect()->route('admin.dashboard');
+    }
     return view('auth.login');
 });
 
@@ -32,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::middleware(['auth','permission'])->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard',function(){
         return view('admin.dashboard');
      })->name('admin.dashboard');
