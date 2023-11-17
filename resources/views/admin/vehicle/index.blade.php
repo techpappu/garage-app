@@ -25,7 +25,7 @@
                         <th class="min-w-[30px] py-5 px-2 font-semibold text-black dark:text-white">
                             ID
                         </th>
-                        <th class="min-w-[30px] py-5 px-2 font-semibold text-black dark:text-white">
+                        <th class="min-w-[30px] py-5 px-2 border-l font-semibold text-black dark:text-white">
                             Name
                         </th>
                         <th
@@ -42,7 +42,7 @@
                             Status
                         </th>
                         <th class="py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
-                            Created At
+                            Next Maintenance Date
                         </th>
                         <th class="py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
                             Actions
@@ -71,14 +71,20 @@
                                 <h5 class="font-medium text-black dark:text-white">{{ $row->status }}</h5>
                             </td>
                             <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
-                                <p class="text-black dark:text-white">{{ $row->created_at->diffForHumans() }}</p>
+                                <p class="text-black dark:text-white">{{ $row->next_maintenance_date }}</p>
                             </td>
                             <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
                                 <div class="flex items-center space-x-3.5">
+                                    <a href="{{route('admin.vehicle.report',$row->id)}}"
+                                        class="block p-2 bg-blue-900 text-white  rounded border hover:bg-blue-800 flex border-bodydark1">
+                                        <x-icon.file></x-icon.file><span class="ml-1">Report</span>
+                                    </a>
+
                                     <a href="{{route('admin.vehicle.post.update',$row->id)}}"
                                         class="block p-2 bg-gray-300 text-black  rounded border hover:bg-gray-400 flex border-bodydark1">
                                         <x-icon.edit></x-icon.edit> <span class="ml-1">Edit</span>
                                     </a>
+                                    
                                     <x-admin.button.delete :row="$row" :action="route('admin.vehicle.delete',$row->id)">
                                     </x-admin.button.delete>
                                 </div>

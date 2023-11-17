@@ -27,12 +27,24 @@
                         <th class="min-w-[30px] py-5 px-2 font-semibold text-black dark:text-white">
                            Item ID
                         </th>
-                        <th class="min-w-[30px] py-5 px-2 font-semibold text-black dark:text-white">
+                        <th class="min-w-[30px] py-5 px-2 border-l font-semibold text-black dark:text-white">
                             Job Name
                         </th>
                         <th
                             class="min-w-[150px] py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
-                           Item Description
+                            List of Work / Job
+                        </th>
+                        <th
+                            class="min-w-[150px] py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
+                            List of Spares
+                        </th>
+                        <th
+                            class="min-w-[150px] py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
+                            Amount
+                        </th>
+                        <th
+                            class="min-w-[150px] py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
+                            Warranty
                         </th>
                         <th class="py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
                            Item Status
@@ -52,10 +64,21 @@
                                 <h5 class="font-medium text-black dark:text-white">{{ $row->id }}</h5>
                             </td>
                             <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
-                                <h5 class="font-medium text-black dark:text-white">{{ $row->job->title }}</h5>
+                                <h5 class="font-medium text-[#0C3A5F] font-semibold dark:text-white">
+                                     <a href="{{ route('admin.item',$row->job->id) }}">{{ $row->job->title }}</a>
+                                </h5>
                             </td>
                             <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
                                 <h5 class="font-medium text-black dark:text-white">{{ $row->description }}</h5>
+                            </td>
+                            <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
+                                <h5 class="font-medium text-black dark:text-white">{{ $row->list_of_spares }}</h5>
+                            </td>
+                            <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
+                                <h5 class="font-medium text-black dark:text-white">{{ $row->amount }}</h5>
+                            </td>
+                            <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
+                                <h5 class="font-medium text-black dark:text-white">{{ $row->warranty }}</h5>
                             </td>
                             <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
                                 <h5 class="font-medium text-black dark:text-white">{{ $row->status }}</h5>

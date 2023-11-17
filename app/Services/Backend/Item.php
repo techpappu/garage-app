@@ -32,10 +32,12 @@ class Item
 
         $request->validate([
             'job_id' =>'required',
-            'description' =>'required',
+            'title' =>'required',
+            'list_of_spares' =>'required',
+            'amount' =>'required',
             'status' =>'required',
         ]);
-        $data = $request->only(['job_id','description','status']);
+        $data = $request->only(['job_id','title','description','list_of_spares','amount','warranty','status']);
         $row = \Facades\App\Models\Item::create($data);
 
         if(!empty($row->id)) return true;
@@ -47,10 +49,12 @@ class Item
         $row = \Facades\App\Models\Item::find($id);
         $request->validate([
             'job_id' =>'required',
-            'description' =>'required',
+            'title' =>'required',
+            'list_of_spares' =>'required',
+            'amount' =>'required',
             'status' =>'required',
         ]);
-        $data = $request->only(['job_id','description','status']);
+        $data = $request->only(['job_id','title','description','list_of_spares','amount','warranty','status']);
 
         if (!empty($row->id)) {
 

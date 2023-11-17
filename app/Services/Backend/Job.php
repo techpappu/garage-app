@@ -32,10 +32,13 @@ class Job
 
         $request->validate([
             'vendor_id' =>'required',
+            'vehicle_id' =>'required',
+            'work_order_no' =>'required',
+            'work_order_date' =>'required',
             'title' =>'required',
             'status' =>'required',
         ]);
-        $data = $request->only(['vendor_id','title','description','comments','status']);
+        $data = $request->only(['vendor_id','vehicle_id','work_order_no','work_order_date','title','description','comments','status']);
         $row = \Facades\App\Models\Job::create($data);
 
         if(!empty($row->id)) return true;
@@ -47,11 +50,13 @@ class Job
         $row = \Facades\App\Models\Job::find($id);
         $request->validate([
             'vendor_id' =>'required',
+            'vehicle_id' =>'required',
+            'work_order_no' =>'required',
+            'work_order_date' =>'required',
             'title' =>'required',
             'status' =>'required',
         ]);
-        
-        $data = $request->only(['vendor_id','title','description','comments','status']);
+        $data = $request->only(['vendor_id','vehicle_id','work_order_no','work_order_date','title','description','comments','status']);
 
         if (!empty($row->id)) {
 

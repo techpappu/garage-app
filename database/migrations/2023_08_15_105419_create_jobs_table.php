@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
+            $table->foreignId('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade');
+            $table->string('work_order_no',50);
+            $table->date('work_order_date');
             $table->string('title', 200);
             $table->text('description')->nullable();
             $table->text('comments')->nullable();
             $table->string('status', 100);
-
             $table->timestamps();
         });
     }

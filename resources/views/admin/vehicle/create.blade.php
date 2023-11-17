@@ -74,14 +74,20 @@
                         </div>
                     </div>
                     <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
-                        <div class="w-full xl:w-1/2 [&>*]:!w-full">
+                        <div class="w-full xl:w-1/3 [&>*]:!w-full">
                           <label class="mb-2.5 block text-black dark:text-white">
                             Start Date <span class="text-meta-1">*</span>
                           </label>
                           <input type="date" placeholder="DD-MM-YYYY" name="start_date" class="w-full datepicker rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
                         </div>
+                        <div class="w-full xl:w-1/3 [&>*]:!w-full">
+                          <label class="mb-2.5 block text-black dark:text-white">
+                            Next Maintenance Date <span class="text-meta-1">*</span>
+                          </label>
+                          <input type="date" placeholder="DD-MM-YYYY" name="next_maintenance_date" class="w-full datepicker rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                        </div>
 
-                        <div class="w-full xl:w-1/2">
+                        <div class="w-full xl:w-1/3">
                           <label class="mb-2.5 block text-black dark:text-white">
                             Status <span class="text-meta-1">*</span>
                           </label>
@@ -113,6 +119,7 @@
                 engine_manufacturer: 'required',
                 engine_model: 'required',
                 start_date: 'required',
+                next_maintenance_date: 'required',
                 status: 'required',
             },
             messages: {
@@ -123,6 +130,7 @@
                 engine_manufacturer: 'Please enter Engine Manufacturer',
                 engine_model: 'Please enter Engine Model',
                 start_date: 'Please Select Start Date',
+                next_maintenance_date: 'Please Select Next Maintenance Date',
                 status: 'Please select a status',
 
             }

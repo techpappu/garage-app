@@ -29,15 +29,27 @@
                         <th class="min-w-[30px] py-5 px-2 font-semibold text-black dark:text-white">
                             ID
                         </th>
+                        <th class="min-w-[30px] border-l py-5 px-2 font-semibold text-black dark:text-white">
+                            Title
+                        </th>
                         <th
                             class="min-w-[150px] py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
-                            Description
+                            List of work / Job
+                        </th>
+                        <th
+                            class="min-w-[150px] py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
+                            List of Spares
+                        </th>
+                        <th
+                            class="min-w-[150px] py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
+                            Amount
+                        </th>
+                        <th
+                            class="min-w-[150px] py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
+                            Warranty
                         </th>
                         <th class="py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
                             Status
-                        </th>
-                        <th class="py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
-                            Created At
                         </th>
                         <th class="py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
                             Actions
@@ -51,13 +63,22 @@
                                 <h5 class="font-medium text-black dark:text-white">{{ $row->id }}</h5>
                             </td>
                             <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
+                                <h5 class="font-medium text-black dark:text-white">{{ $row->title }}</h5>
+                            </td>
+                            <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
                                 <h5 class="font-medium text-black dark:text-white">{{ $row->description }}</h5>
                             </td>
                             <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
-                                <h5 class="font-medium text-black dark:text-white">{{ $row->status }}</h5>
+                                <h5 class="font-medium text-black dark:text-white">{{ $row->list_of_spares }}</h5>
                             </td>
                             <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
-                                <p class="text-black dark:text-white">{{ $row->created_at->diffForHumans() }}</p>
+                                <h5 class="font-medium text-black dark:text-white">{{ $row->amount }}</h5>
+                            </td>
+                            <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
+                                <h5 class="font-medium text-black dark:text-white">{{ $row->warranty }}</h5>
+                            </td>
+                            <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
+                                <h5 class="font-medium text-black dark:text-white">{{ $row->status }}</h5>
                             </td>
                             <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
                                 <div class="flex items-center space-x-3.5">
@@ -114,11 +135,15 @@
     <script type="module">
         $("#form").validate({
             rules: {
-                description: 'required',
+                title: 'required',
+                list_of_spares: 'required',
+                amount: 'required',
                 status: 'required',
             },
             messages: {
-                description: 'Please enter a item description',
+                title: 'Please enter a item Title',
+                list_of_spares: 'Please enter list of spares',
+                amount: 'Please enter Item Amount',
                 status: 'Please select a status',
 
             }

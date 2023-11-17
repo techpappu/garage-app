@@ -36,9 +36,10 @@ class Vehicle
             'engine_manufacturer' =>'required',
             'engine_model' =>'required',
             'start_date' =>'required',
+            'next_maintenance_date' =>'required',
             'status' =>'required',
         ]);
-        $data = $request->only(['name','chassis_no','manufacturer','capacity','engine_manufacturer','engine_model','start_date','status']);
+        $data = $request->only(['name','chassis_no','manufacturer','capacity','engine_manufacturer','engine_model','start_date','next_maintenance_date','status']);
         $row = \Facades\App\Models\Vehicle::create($data);
 
         if(!empty($row->id)) return true;
@@ -56,10 +57,11 @@ class Vehicle
             'engine_manufacturer' =>'required',
             'engine_model' =>'required',
             'start_date' =>'required',
+            'next_maintenance_date' =>'required',
             'status' =>'required',
         ]);
         
-        $data = $request->only(['name','chassis_no','manufacturer','capacity','engine_manufacturer','engine_model','start_date','status']);
+        $data = $request->only(['name','chassis_no','manufacturer','capacity','engine_manufacturer','engine_model','start_date','next_maintenance_date','status']);
 
         if (!empty($row->id)) {
 

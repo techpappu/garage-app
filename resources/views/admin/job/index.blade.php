@@ -27,6 +27,14 @@
                         </th>
                         <th
                             class="min-w-[150px] py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
+                            Work Order No
+                        </th>
+                        <th
+                            class="min-w-[150px] py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
+                            Work Order Date
+                        </th>
+                        <th
+                            class="min-w-[150px] py-5 px-2 border-l border-[#eee] font-semibold text-black dark:text-white">
                             Title
                         </th>
                         <th
@@ -53,6 +61,12 @@
                             class=" border border-[#eee] hover:bg-[#fcfafa] dark:hover:bg-current dark:border-strokedark">
                             <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
                                 <h5 class="font-medium text-black dark:text-white">{{ $row->id }}</h5>
+                            </td>
+                            <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
+                                <h5 class="font-medium text-black dark:text-white">{{ $row->work_order_no }}</h5>
+                            </td>
+                            <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
+                                <h5 class="font-medium text-black dark:text-white">{{ $row->work_order_date }}</h5>
                             </td>
                             <td class="border-b border-l border-[#eee] p-2 dark:border-strokedark">
                                 <h5 class="font-medium text-black dark:text-white">{{ $row->title }}</h5>

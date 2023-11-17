@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('engine_model', 200);
             $table->date('start_date');
             $table->string('status', 200);
+            $table->date('next_maintenance_date');
             $table->timestamps();
         });
     }

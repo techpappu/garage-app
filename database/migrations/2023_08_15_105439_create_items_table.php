@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('job_id')->references('id')->on('jobs')->onDelete('cascade');
-            $table->text('description');
+            $table->string('title', 100);
+            $table->text('description')->nullable();
+            $table->text('list_of_spares');
+            $table->float('amount');
+            $table->string('warranty', 100)->nullable();
             $table->string('status', 100);
             $table->timestamps();
         });

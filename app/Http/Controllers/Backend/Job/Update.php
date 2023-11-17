@@ -22,6 +22,7 @@ class Update extends Controller
         $data=[];
         $data['row']=\Facades\App\Services\Backend\Job::get($id);
         $data['vendors']=\Facades\App\Models\Vendor::all();
+        $data['vehicles']=\Facades\App\Models\Vehicle::all();
         return view('admin.job.update',compact('data'));
     }
 }

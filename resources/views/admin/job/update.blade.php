@@ -29,29 +29,63 @@
             <form action="{{route('admin.job.post.update',$data['row']->id)}}" method="POST" id="form">
                 @csrf
                 <div class="p-6.5">
-                    <div class="mb-4.5">
-                        <label class="mb-2.5 block text-black dark:text-white">
-                            Select A Vendor <span class="text-meta-1">*</span>
-                        </label>
-                        <div class="relative z-20 bg-transparent dark:bg-form-input">
-                            <select name="vendor_id"
-                                class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
-                                <option selected disabled hidden>Select A Vendor</option>
-                                @foreach ($data['vendors'] as  $vendor)
+                    <div class="flex flex-col gap-6 xl:flex-row">
+                        <div class="mb-4.5  lg:w-1/2">
+                            <label class="mb-2.5 block text-black dark:text-white">
+                                Select A Vendor <span class="text-meta-1">*</span>
+                            </label>
+                            <div class="relative z-20 bg-transparent dark:bg-form-input">
+                                <select name="vendor_id"
+                                    class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                                    <option selected disabled hidden>Select A Vendor</option>
+                                    @foreach ($data['vendors'] as  $vendor)
                                     <option value="{{$vendor->id}}" {{$data['row']->vendor_id==$vendor->id ? 'selected' : ''}}>{{$vendor->name}}</option>
-                                @endforeach
-                            </select>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-4.5  lg:w-1/2">
+                            <label class="mb-2.5 block text-black dark:text-white">
+                                Select A Vehicle <span class="text-meta-1">*</span>
+                            </label>
+                            <div class="relative z-20 bg-transparent dark:bg-form-input">
+                                <select name="vehicle_id"
+                                    class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                                    <option selected disabled hidden>Select A Vehicle</option>
+                                    @foreach ($data['vehicles'] as  $vehicle)
+                                        <option value="{{$vehicle->id}}" {{$data['row']->vehicle_id==$vehicle->id ? 'selected' : ''}}>{{$vehicle->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
+
+
+
                     <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
 
-                        <div class="w-full">
+                        <div class="w-full lg:w-2/4">
                             <label class="mb-2.5 block text-black dark:text-white">
                                 Title <span class="text-meta-1">*</span>
                             </label>
                             <input type="text" value="{{$data['row']->title}}" placeholder="Enter Job Title" name="title"
                                 class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
                         </div>
+                        <div class="w-full lg:w-1/4">
+                            <label class="mb-2.5 block text-black dark:text-white">
+                                Work Order No <span class="text-meta-1">*</span>
+                            </label>
+                            <input type="text" value="{{$data['row']->work_order_no}}" placeholder="Enter Work Order No" name="work_order_no"
+                                class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                        </div>
+                        <div class="w-full lg:w-1/4 [&>*]:!w-full">
+                            <label class="mb-2.5 block text-black dark:text-white">
+                                Work Order Date <span class="text-meta-1">*</span>
+                            </label>
+                            <input type="text" value="{{$data['row']->work_order_date}}" placeholder="DD-MM-YYYY" name="work_order_date" class="w-full datepicker rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                        </div>
+
+
                     </div>
 
                     <div class="mb-4.5">
@@ -94,11 +128,17 @@
             rules: {
                 title: 'required',
                 vendor_id: 'required',
+                vehicle_id: 'required',
+                work_order_no: 'required',
+                work_order_date: 'required',
                 status: 'required',
             },
             messages: {
                 title: 'Please enter a job title',
-                vendor_id: 'Please select a vendor',
+                vendor_id: 'Please select a Vendor',
+                vehicle_id: 'Please select a Vehicle',
+                work_order_no: 'Please create unique a Work Order No',
+                work_order_date: 'Please Enter Work Order Date',
                 status: 'Please select a status',
 
             }

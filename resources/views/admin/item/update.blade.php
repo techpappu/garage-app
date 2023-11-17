@@ -43,20 +43,51 @@
                             </select>
                         </div>
                     </div>
+
                     <div class="mb-4.5">
                         <label class="mb-2.5 block text-black dark:text-white">
-                            Description <span class="text-meta-1">*</span>
+                            Title  <span class="text-meta-1">*</span>
+                        </label>
+                        <input type="text" value="{{$data['row']->title}}" placeholder="Enter Item Title" name="title"
+                                class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                    </div>
+                    <div class="mb-4.5">
+                        <label class="mb-2.5 block text-black dark:text-white">
+                            List of work / Job
                         </label>
                         <textarea rows="4" name="description" placeholder="Enter Item Description Here..." class="w-full rounded-lg border-[1.5px] border-primary bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input" spellcheck="false">{{$data['row']->description}}</textarea>
                     </div>
                     <div class="mb-4.5">
                         <label class="mb-2.5 block text-black dark:text-white">
-                            Status <span class="text-meta-1">*</span>
+                            List of Spares <span class="text-meta-1">*</span>
                         </label>
-                        <select name="status" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
-                            <option value="active" {{ $data['row']->status=='active' ? 'selected' : '' }}>Active</option>
+                        <textarea rows="4" name="list_of_spares" placeholder="Enter Item List of Spares..." class="w-full rounded-lg border-[1.5px] border-primary bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input" spellcheck="false">{{$data['row']->list_of_spares}}</textarea>
+                    </div>
+                    <div class="flex flex-col gap-6 xl:flex-row">
+                        <div class="mb-4.5 w-full lg:w-1/3">
+                            <label class="mb-2.5 block text-black dark:text-white">
+                                Amount  <span class="text-meta-1">*</span>
+                            </label>
+                            <input type="number" value="{{$data['row']->amount}}" step="0.01" placeholder="Enter Item Amount" name="amount"
+                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                        </div>
+                        <div class="mb-4.5 w-full lg:w-1/3">
+                            <label class="mb-2.5 block text-black dark:text-white">
+                                Warranty
+                            </label>
+                            <input type="text"  value="{{$data['row']->warranty}}" placeholder="Enter Item warranty" name="warranty"
+                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                        </div>
+
+                        <div class="mb-4.5 w-full lg:w-1/3">
+                            <label class="mb-2.5 block text-black dark:text-white">
+                                Status <span class="text-meta-1">*</span>
+                            </label>
+                            <select name="status" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                                <option value="active" {{ $data['row']->status=='active' ? 'selected' : '' }}>Active</option>
                             <option value="inactive" {{ $data['row']->status=='inactive' ? 'selected' : '' }}>Inactive</option>
-                          </select>
+                              </select>
+                        </div>
                     </div>
 
 
@@ -75,11 +106,15 @@
     <script type="module">
         $("#form").validate({
             rules: {
-                description: 'required',
+                title: 'required',
+                list_of_spares: 'required',
+                amount: 'required',
                 status: 'required',
             },
             messages: {
-                description: 'Please enter a item description',
+                title: 'Please enter a item Title',
+                list_of_spares: 'Please enter list of spares',
+                amount: 'Please enter Item Amount',
                 status: 'Please select a status',
 
             }

@@ -21,6 +21,7 @@ class Create extends Controller
         }
         $data=[];
         $data['vendors']=\Facades\App\Models\Vendor::all();
+        $data['vehicles']=\Facades\App\Models\Vehicle::all();
         return view('admin.job.create',compact('data'));
     }
 }

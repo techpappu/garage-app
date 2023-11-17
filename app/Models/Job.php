@@ -19,6 +19,16 @@ class Job extends Model
     {
         return $this->belongsTo(Vendor::class);
     }
+
+    /**
+     * Get the Vehicle that owns the Job
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function vehicle()
+    {
+        return $this->belongsTo(Vehicle::class);
+    }
     
     /**
      * Get all of the items for the Job

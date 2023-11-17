@@ -24,25 +24,55 @@
             </div>
             <form action="{{route('admin.item.post.create',$data['job']->id)}}" method="POST" id="form">
                 @csrf
-            
+                <input type="hidden" name="job_id" value="{{$data['job']->id}}">
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <div class="mb-4.5">
                         <label class="mb-2.5 block text-black dark:text-white">
-                            Description <span class="text-meta-1">*</span>
+                            Title  <span class="text-meta-1">*</span>
                         </label>
-                        <input type="hidden" name="job_id" value="{{$data['job']->id}}">
+                        <input type="text" placeholder="Enter Item Title" name="title"
+                                class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                    </div>
+                    <div class="mb-4.5">
+                        <label class="mb-2.5 block text-black dark:text-white">
+                            List of work / Job
+                        </label>
                         <textarea rows="4" name="description" placeholder="Enter Item Description Here..." class="w-full rounded-lg border-[1.5px] border-primary bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input" spellcheck="false"></textarea>
                     </div>
                     <div class="mb-4.5">
                         <label class="mb-2.5 block text-black dark:text-white">
-                            Status <span class="text-meta-1">*</span>
+                            List of Spares <span class="text-meta-1">*</span>
                         </label>
-                        <select name="status" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
-                          </select>
+                        <textarea rows="4" name="list_of_spares" placeholder="Enter Item List of Spares..." class="w-full rounded-lg border-[1.5px] border-primary bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input" spellcheck="false"></textarea>
                     </div>
+                    <div class="flex flex-col gap-6 xl:flex-row">
+                        <div class="mb-4.5 w-full lg:w-1/3">
+                            <label class="mb-2.5 block text-black dark:text-white">
+                                Amount  <span class="text-meta-1">*</span>
+                            </label>
+                            <input type="number" step="0.01" placeholder="Enter Item Amount" name="amount"
+                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                        </div>
+                        <div class="mb-4.5 w-full lg:w-1/3">
+                            <label class="mb-2.5 block text-black dark:text-white">
+                                Warranty
+                            </label>
+                            <input type="text" placeholder="Enter Item warranty" name="warranty"
+                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                        </div>
+
+                        <div class="mb-4.5 w-full lg:w-1/3">
+                            <label class="mb-2.5 block text-black dark:text-white">
+                                Status <span class="text-meta-1">*</span>
+                            </label>
+                            <select name="status" class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                              </select>
+                        </div>
+                    </div>
+                    
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">

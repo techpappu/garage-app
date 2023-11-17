@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'permission'])->group(function () {
     Route::get('/admin/dashboard',function(){
         return view('admin.dashboard');
      })->name('admin.dashboard');
@@ -74,6 +74,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/vehicle/update/{id}', \App\Http\Controllers\Backend\Vehicle\Update::class)->name('admin.vehicle.update');
     Route::post('/admin/vehicle/update/{id}', \App\Http\Controllers\Backend\Vehicle\Update::class)->name('admin.vehicle.post.update');
     Route::post('/admin/vehicle/delete/{id}', \App\Http\Controllers\Backend\Vehicle\Delete::class)->name('admin.vehicle.delete');
+
+    Route::get('/admin/vehicle/{id}/report', \App\Http\Controllers\Backend\Vehicle\Report::class)->name('admin.vehicle.report');
 
     # Back-end Job - only admin role Job will be accessing this module in backend to manage Job
     Route::get('/admin/job', \App\Http\Controllers\Backend\Job\Index::class)->name('admin.job');
